@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "customer/index"
   resource :session
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -15,5 +14,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "products#index"
-  resources :products
+  resources :products do
+    resources :subscribers, only: [ :create ]
+  end
 end
