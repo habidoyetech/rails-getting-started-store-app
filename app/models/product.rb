@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
+  
   include Notifications
+
   has_one_attached :featured_image
   has_rich_text :description
 
